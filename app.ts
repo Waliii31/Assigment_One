@@ -54,27 +54,27 @@ console.log(message)
 // 11) Names: Store the names of a few of your friends in a array called names. Print each person’s name by accessing each element in the list, one at a time.
 
 var friendNames: String[] = ["Zain", "Taha", "Abdul Rehman", "Saim", "Aneeq"];
-for(let i = 0; i < friendNames.length; i++){
+for(var i = 0; i < friendNames.length; i++){
     console.log(friendNames[i]) 
 }
 
 // 12) Greetings: Start with the array you used in Exercise 11, but instead of just printing each person’s name, print a message to them. The text of each message should be the same, but each message should be personalized with the person’s name.
 
-for(let i = 0; i < friendNames.length; i++){
+for(var i = 0; i < friendNames.length; i++){
     console.log("Greetings: " + friendNames[i])
 }
 
 // 13) Your Own Array: Think of your favorite mode of transportation, such as a motorcycle or a car, and make a list that stores several examples. Use your list to print a series of statements about these items, such as “I would like to own a Honda motorcycle.”
 
 var favoriteTransportation: string[] = ["Tesla Model S", "BMW M5", "Honda CBR1000RR", "Yamaha YZF-R1"];
-for(let i = 0;i < favoriteTransportation.length; i++){
+for(var i = 0;i < favoriteTransportation.length; i++){
     console.log(`I would like to own a ${favoriteTransportation[i]}.`);
 }
 
 // 14) Guest List: If you could invite anyone, living or deceased, to dinner, who would you invite? Make a list that includes at least three people you’d like to invite to dinner. Then use your list to print a message to each person, inviting them to dinner.
 
 var dinnerInvite : string[] = ["Zain", "Taha", "Abdul Rehman", "Saim", "Aneeq"]
-for(let x = 0; x < dinnerInvite.length; x++){
+for(var x = 0; x < dinnerInvite.length; x++){
     console.log(dinnerInvite[x] + ", you are invited to our dinner")
 }
 
@@ -83,15 +83,206 @@ for(let x = 0; x < dinnerInvite.length; x++){
 // • Modify your list, replacing the name of the guest who can’t make it with the name of the new person you are inviting.
 // • Print a second set of invitation messages, one for each person who is still in your list.
 
-let unableToAttend: string = dinnerInvite[2];
-let newInvite: string = "Ahmad"; 
-console.log(`${unableToAttend} can't make it to the dinner.`);
-dinnerInvite[dinnerInvite.indexOf(unableToAttend)] = newInvite;
+var unabvaroAttend: string = dinnerInvite[2];
+var newInvite: string = "Ahmad"; 
+console.log(`${unabvaroAttend} can't make it to the dinner.`);
+dinnerInvite[dinnerInvite.indexOf(unabvaroAttend)] = newInvite;
 console.log("\nSecond set of invitation messages:");
-for (let guest of dinnerInvite) {
+for (var guest of dinnerInvite) {
     console.log(`${guest}, you are invited to our dinner.`);
 }
 
+// 16) More Guests: You just found a bigger dinner table, so now more space is available. Think of three more guests to invite to dinner.
+// • Start with your program from Exercise 15. Add a print statement to the end of your program informing people that you found a bigger dinner table.
+// • Add one new guest to the beginning of your array.
+// • Add one new guest to the middle of your array. 
+// • Use append() to add one new guest to the end of your list. 
+// • Print a new set of invitation messages, one for each person in your list.
+
+for (var guest of dinnerInvite) {
+    console.log(`${guest}, we just want to inform you that we just got a bigger dinner table.`);
+}
+dinnerInvite.unshift("Ali")
+dinnerInvite.splice(3, 0, "Momin")
+dinnerInvite.push("Haseeb")
+
+for(var guest of dinnerInvite){
+    console.log(`${guest}, you are invited to our dinner.`)
+}
+
+// 17) Shrinking Guest List: You just found out that your new dinner table won’t arrive in time for the dinner, and you have space for only two guests.
+// • Start with your program from Exercise 16. Add a new line that prints a message saying that you can invite only two people for dinner.
+// • Remove guests from your list one at a time until only two names remain in your list. Each time you pop a name from your list, print a message to that person varting them know you’re sorry you can’t invite them to dinner.
+// • Print a message to each of the two people still on your list, varting them know they’re still invited.
+// • Remove the last two names from your list, so you have an empty list. Print your list to make sure you actually have an empty list at the end of your program.
+
+console.log("Sorry, we can only accomodate only two guest at our dinner table.")
+var flag = false
+while (flag === false){
+    if(dinnerInvite.length != 2){
+        var notInDinner = dinnerInvite.pop()
+        console.log("Sorry " + notInDinner + ", we can't accomodate you")
+    }else{
+        flag = true
+        for(var remaining of dinnerInvite){
+            console.log(remaining + " you are still invited to dinner.")
+        }
+    }
+}
+dinnerInvite.pop()
+dinnerInvite.pop()
+console.log(dinnerInvite)
+
+// 18) Seeing the World: Think of at least five places in the world you’d like to visit.
+// • Store the locations in a array. Make sure the array is not in alphabetical order.
+// • Print your array in its original order.
+// • Print your array in alphabetical order without modifying the actual list.
+// • Show that your array is still in its original order by printing it.
+// • Print your array in reverse alphabetical order without changing the order of the original list.
+// • Show that your array is still in its original order by printing it again.
+// • Reverse the order of your list. Print the array to show that its order has changed.
+// • Reverse the order of your list again. Print the list to show it’s back to its original order.
+// • Sort your array so it’s stored in alphabetical order. Print the array to show that its order has been changed.
+// • Sort to change your array so it’s stored in reverse alphabetical order. Print the list to show that its order has changed.
+
+var visit : string[] = ["Germany", "Newzeland", "London", "Holland", "America"]
+var sortedArr : string[] = [...visit].sort()
+var reverseArr : string[] = [...visit].sort().reverse()
+console.log(visit)
+console.log(sortedArr)
+console.log(reverseArr)
+visit.reverse()
+visit.reverse()
+console.log(visit)
+visit.sort()
+visit.sort()
+console.log(visit)
+
+// 19) Dinner Guests: Working with one of the programs from Exercises 14 through 18, print a message indicating the number of people you are inviting to dinner.
+
+console.log("Only " + dinnerInvite.length + " guests are invited to the dinner")
+
+// 20) Think of something you could store in a array. For example, you could make a list of mountains, rivers, countries, cities, languages, or anything else you’d like. Write a program that creates a list containing these items.
+
+var cities : string[] = ["Karachi","Lahore","Faisalabad","Rawalpindi","Gujranwala","Peshawar","Multan","Saidu Sharif","Hyderabad City","Islamabad","Quetta","Cantonment","Wahga"];
+
+// 21) Intentional Error: If you haven’t received an array index error in one of your programs yet, try to make one happen. Change an index in one of your programs to produce an index error. Make sure you correct the error before closing the program.
+
+const Car: { type: string, model: string, year: number } = {
+    type: "Toyota",
+    model: "Corolla",
+    year: 2009
+};
+
+// 22) Intentional Error: If you haven’t received an array index error in one of your programs yet, try to make one happen. Change an index in one of your programs to produce an index error. Make sure you correct the error before closing the program.
+
+// done 
+
+// 23) Conditional Tests: Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test. Your code should look something like this:
+// var car = 'subaru';
+// console.log("Is car == 'subaru'? I predict True.")
+// console.log(car == 'subaru')
+// • Look closely at your results, and make sure you understand why each line evaluates to True or False.
+// • Create at least 10 tests. Have at least 5 tests evaluate to True and another 5 tests evaluate to False.
+
+var car = 'subaru';
+
+// Test 1
+console.log("Is car == 'subaru'? I predict True.");
+console.log(car == 'subaru');  
+
+// Test 2
+console.log("Is car == 'toyota'? I predict False.");
+console.log(car == 'toyota'); 
+
+// Test 3
+console.log("Is car != 'honda'? I predict True.");
+console.log(car != 'honda'); 
+
+// Test 4
+console.log("Is car === 'subaru'? I predict True.");
+console.log(car === 'subaru');
+
+// Test 5
+console.log("Is car !== 'subaru'? I predict False.");
+console.log(car !== 'subaru');
+
+// Test 6
+console.log("Is car.length > 5? I predict False.");
+console.log(car.length > 5);  
+
+// Test 7
+console.log("Is car.startsWith('su')? I predict True.");
+console.log(car.startsWith('su'));
+
+// Test 8
+console.log("Is car.includes('bar')? I predict True.");
+console.log(car.includes('bar'));
+
+// Test 9
+console.log("Is car.endsWith('ru')? I predict True.");
+console.log(car.endsWith('ru'));
+
+// Test 10
+console.log("Is car.toUpperCase() === 'SUBARU'? I predict True.");
+console.log(car.toUpperCase() === 'SUBARU'); 
+
+// 24) More Conditional Tests: You don’t have to limit the number of tests you create to 10. If you want to try more comparisons, write more tests. Have at least one True and one False result for each of the following:
+// • Tests for equality and inequality with strings
+// • Tests using the lower case function
+// • Numerical tests involving equality and inequality, greater than and less than, greater than or equal to, and less than or equal to
+// • Tests using "and" and "or" operators
+// • Test whether an item is in a array
+// • Test whether an item is not in a array
+
+var city = 'Paris';
+
+console.log("Is city equal to 'Paris'? I predict True.");
+console.log(city == 'Paris');  
+
+console.log("Is city not equal to 'London'? I predict True.");
+console.log(city != 'London'); 
+
+console.log("Is city equal to 'paris'? I predict False.");
+console.log(city == 'paris'); 
+
+var country = 'FRANCE';
+console.log("Is country lowercase equal to 'france'? I predict True.");
+console.log(country.toLowerCase() == 'france');
+
+var x = 10;
+var y = 20;
+
+console.log("Is x less than y? I predict True.");
+console.log(x < y);  
+console.log("Is x greater than or equal to y? I predict False.");
+console.log(x >= y);  
 
 
+var age = 25;
+var hasLicense = true;
 
+console.log("Is age greater than 18 and hasLicense true? I predict True.");
+console.log(age > 18 && hasLicense);  
+
+var fruits = ['apple', 'banana', 'orange'];
+
+console.log("Is 'banana' in the fruits array? I predict True.");
+console.log(fruits.includes("banana"));  
+
+console.log("Is 'grape' not in the fruits array? I predict False.");
+console.log(fruits.includes("grape"));  
+
+// 25) Alien Colors #1: Imagine an alien was just shot down in a game. Create a variable called alien_color and assign it a value of 'green', 'yellow', or 'red'.
+// • Write an if statement to test whether the alien’s color is green. If it is, print a message that the player just earned 5 points.
+// • Write one version of this program that passes the if test and another that fails. (The version that fails will have no output.)
+
+var alien_color = "green"
+if(alien_color === "green"){
+    console.log("You just earned 5 points")
+}
+
+var alien_color = "red"
+if(alien_color === "green"){
+    console.log("")
+}
